@@ -39,15 +39,15 @@ public class Raycast : MonoBehaviour
                     }
                 }
 
-                BasePower power = hit.collider.GetComponent<BasePower>();
-                if (power != null)
+                Hub Gui = hit.collider.GetComponent<Hub>();
+                if (Gui != null)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if (hit.distance < power.useRange)
+                        if (hit.distance < Gui.useRange)
                         {
-                            Debug.Log("Power");
-                            power.Power();
+                            Debug.Log("Open GUI");
+                            Gui.Open();
                         }
                     }
                 }

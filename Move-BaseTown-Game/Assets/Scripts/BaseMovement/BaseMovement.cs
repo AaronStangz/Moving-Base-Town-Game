@@ -69,6 +69,7 @@ public class BaseMovement : MonoBehaviour
             leftWheelGrounded = false;
         }
 
+
         if (Physics.Raycast(rightWheel.transform.position, Vector3.down, out hit, smallWheelGroundCheckDistance, groundLayer))
         {
             rightWheelGrounded = true;
