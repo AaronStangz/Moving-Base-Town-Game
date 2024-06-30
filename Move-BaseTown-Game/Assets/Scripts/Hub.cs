@@ -14,6 +14,7 @@ public class Hub : MonoBehaviour
     ItemManager IM;
     TownLevelManager TLM;
     public GameObject mainManger;
+    public GameObject mainlevelbar;
 
     public GameObject[] Pages;
     public GameObject[] TownLevels;
@@ -30,6 +31,14 @@ public class Hub : MonoBehaviour
         if(guiOpen) 
         {
             UpgradeText();
+            if(Input.GetKey(KeyCode.Escape)) 
+            {
+                gui.SetActive(false);
+                mainlevelbar.SetActive(true);
+                guiOpen = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                playerCamera.GetComponent<PlayerCam>().enabled = true;
+            }
         }
     }
 
@@ -38,29 +47,22 @@ public class Hub : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             gui.SetActive(true);
+            mainlevelbar.SetActive(false);
             guiOpen = true;
             Cursor.lockState = CursorLockMode.None;
             playerCamera.GetComponent<PlayerCam>().enabled = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Escape) && (guiOpen == true))
-        {
-            gui.SetActive(false);
-            guiOpen = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            playerCamera.GetComponent<PlayerCam>().enabled = true;
         }
     }
 
     public void UpgradeText()
     {
-        CostText[0].text = "Scrap Wood: " + IM.scrapWood + " / " + "5" + " ";
-        CostText[1].text = "Scrap Metel: " + IM.scrapMetel + " / " + "10 " + " ";
+        CostText[0].text = "Scrap Metel: " + IM.scrapMetel + " / " + "5" + " ";
 
-        CostText[2].text = "Wood: " + IM.wood + " / " + "5" + " ";
-        CostText[3].text = "Metel: " + IM.metel + " / " + "15 " + " ";
+        CostText[1].text = "Scrap Metel: " + IM.scrapMetel + " / " + "5" + " ";
+        CostText[2].text = "Light Metel: " + IM.lightMetel + " / " + "15 " + " ";
 
-        CostText[4].text = "Wood: " + IM.scrapWood + " / " + "20" + " ";
-        CostText[5].text = "Metel: " + IM.scrapMetel + " / " + "40 " + " ";
+        CostText[3].text = "Light Metel: " + IM.lightMetel + " / " + "20" + " ";
+        CostText[4].text = "Heavy Metel: " + IM.heavyMetel + " / " + "40 " + " ";
     }
 
     public void TogglePages(int indexToEnable)
@@ -81,29 +83,28 @@ public class Hub : MonoBehaviour
 
     public void UpgradeTownLevel1()
     {
-        if (IM.scrapWood >= 5 && IM.scrapMetel >= 10 && IM.townCurrentLevelPoints >= TLM.pointsforlevel1)
+        if (IM.scrapMetel >= 5 && IM.townCurrentLevelPoints >= TLM.pointsforlevel1)
         {
             TLM.Level1();
-            IM.scrapWood -= 5;
-            IM.scrapMetel -= 10;
+            IM.scrapMetel -= 5;
         }
     }
     public void UpgradeTownLevel2()
     {
-        if (IM.wood >= 5 && IM.metel >= 15 && IM.townCurrentLevelPoints >= TLM.pointsforlevel2)
+        if (IM.scrapMetel >= 5 && IM.lightMetel >= 15 && IM.townCurrentLevelPoints >= TLM.pointsforlevel2)
         {
             TLM.Level2();
-            IM.wood -= 5;
-            IM.metel -= 15;
+            IM.scrapMetel -= 5;
+            IM.lightMetel -= 15;
         }
     }
     public void UpgradeTownLevel3()
     {
-        if (IM.wood >= 20 && IM.metel >= 40 && IM.townCurrentLevelPoints >= TLM.pointsforlevel3)
+        if (IM.lightMetel >= 20 && IM.heavyMetel >= 40 && IM.townCurrentLevelPoints >= TLM.pointsforlevel3)
         {
             TLM.Level3();
-            IM.wood -= 20;
-            IM.metel -= 40;
+            IM.lightMetel -= 20;
+            IM.heavyMetel -= 40;
         }
     }
 

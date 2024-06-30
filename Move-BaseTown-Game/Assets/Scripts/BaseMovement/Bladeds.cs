@@ -32,19 +32,19 @@ public class Bladeds : MonoBehaviour
 
     public void BigRotateBlades(float rotationAmount)
     {
-        blade1.transform.Rotate(Vector3.back, rotationAmount);
-        blade2.transform.Rotate(Vector3.back, rotationAmount);
+        blade1.transform.Rotate(Vector3.forward, rotationAmount);
+        blade2.transform.Rotate(Vector3.forward, rotationAmount);
     }
 
     public void MidRotateBlades(float rotationAmount)
     {
-        blade3.transform.Rotate(Vector3.back, rotationAmount * 5);
-        blade4.transform.Rotate(Vector3.back, rotationAmount * 5);
+        blade3.transform.Rotate(Vector3.forward, rotationAmount * 2);
+        blade4.transform.Rotate(Vector3.forward, rotationAmount * 2);
     }
 
     public void SmallRotateBlades(float rotationAmount)
     {
-        blade5.transform.Rotate(Vector3.back, rotationAmount * 10);
-        blade6.transform.Rotate(Vector3.back, rotationAmount * 10);
+        blade5.transform.Rotate(Vector3.forward, rotationAmount * 3);
+        blade6.transform.Rotate(Vector3.forward, rotationAmount * 3);
     }
 }

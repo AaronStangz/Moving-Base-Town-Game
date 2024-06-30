@@ -7,8 +7,15 @@ public class Raycast : MonoBehaviour
     [SerializeField] private LayerMask Interactable;
     [SerializeField] private LayerMask Collectable;
 
+    ItemManager IM;
+    Inventory INV;
+    public GameObject mainManger;
+    public GameObject player;
+
     void Start()
     {
+        IM = mainManger.GetComponent<ItemManager>();
+        INV = player.GetComponent<Inventory>();
 
     }
 
@@ -48,6 +55,55 @@ public class Raycast : MonoBehaviour
                         {
                             Debug.Log("Open GUI");
                             Gui.Open();
+                        }
+                    }
+                }
+
+                FillBuild Build = hit.collider.GetComponent<FillBuild>();
+                if (Build != null)
+                {
+                    if (Input.GetKeyDown(KeyCode.E) && INV.HoldingScrapWood == true && IM.scrapWood >= 0)
+                    {
+                        if (hit.distance < Build.useRange)
+                        {
+                            Debug.Log("Build");
+                            Build.PlaceScrapWood();
+                            IM.scrapWood -= 1;
+                            IM.townCurrentLevelPoints += 5;
+                            if(IM.scrapWood == 0)
+                            {
+                                INV.OpenHand = true;
+                            }
+                        }
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && INV.HoldingLightWood == true && IM.lightWood >= 0)
+                    {
+                        if (hit.distance < Build.useRange)
+                        {
+                            Debug.Log("Build");
+                            Build.PlaceLightWood();
+                            IM.lightWood -= 1;
+                            IM.townCurrentLevelPoints += 10;
+                            if (IM.lightWood == 0)
+                            {
+                                INV.OpenHand = true;
+                            }
+                        }
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && INV.HoldingHeavyWood == true && IM.heavyWood >= 0)
+                    {
+                        if (hit.distance < Build.useRange)
+                        {
+                            Debug.Log("Build");
+                            Build.PlaceHeavyWood();
+                            IM.heavyWood -= 1;
+                            IM.townCurrentLevelPoints += 20;
+                            if (IM.heavyWood == 0)
+                            {
+                                INV.OpenHand = true;
+                            }
                         }
                     }
                 }

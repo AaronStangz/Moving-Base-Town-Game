@@ -16,11 +16,14 @@ public class ItemManager : MonoBehaviour
 
     [Header("Mats")]
     public int scrapMetel;
-    public int metel;
+    public int lightMetel;
+    public int heavyMetel;
     public int scrapWood;
-    public int wood;
+    public int lightWood;
+    public int heavyWood;
     public int screws;
     public int nails;
+    public int Gear;
     void Start()
     {
         BaseConsole console = gameObject.GetComponent<BaseConsole>();
