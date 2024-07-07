@@ -14,7 +14,6 @@ public class Hub : MonoBehaviour
     ItemManager IM;
     TownLevelManager TLM;
     public GameObject mainManger;
-    public GameObject mainlevelbar;
 
     public GameObject[] Pages;
     public GameObject[] TownLevels;
@@ -34,7 +33,6 @@ public class Hub : MonoBehaviour
             if(Input.GetKey(KeyCode.Escape)) 
             {
                 gui.SetActive(false);
-                mainlevelbar.SetActive(true);
                 guiOpen = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 playerCamera.GetComponent<PlayerCam>().enabled = true;
@@ -47,7 +45,6 @@ public class Hub : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             gui.SetActive(true);
-            mainlevelbar.SetActive(false);
             guiOpen = true;
             Cursor.lockState = CursorLockMode.None;
             playerCamera.GetComponent<PlayerCam>().enabled = false;
@@ -56,13 +53,12 @@ public class Hub : MonoBehaviour
 
     public void UpgradeText()
     {
-        CostText[0].text = "Scrap Metel: " + IM.scrapMetel + " / " + "5" + " ";
+        CostText[0].text = "Light Metel: " + IM.lightMetel + " / " + "5" + " ";
+        CostText[1].text = "Heavy Metel: " + IM.heavyMetel + " / " + "10" + " ";
+        CostText[2].text = "Light Wood: " + IM.lightWood + " / " + "4" + " ";
 
-        CostText[1].text = "Scrap Metel: " + IM.scrapMetel + " / " + "5" + " ";
-        CostText[2].text = "Light Metel: " + IM.lightMetel + " / " + "15 " + " ";
-
-        CostText[3].text = "Light Metel: " + IM.lightMetel + " / " + "20" + " ";
-        CostText[4].text = "Heavy Metel: " + IM.heavyMetel + " / " + "40 " + " ";
+        CostText[3].text = "Light Metel: " + IM.lightMetel + " / " + "10" + " ";
+        CostText[4].text = "Heavy Metel: " + IM.heavyMetel + " / " + "15" + " ";
     }
 
     public void TogglePages(int indexToEnable)
@@ -83,19 +79,21 @@ public class Hub : MonoBehaviour
 
     public void UpgradeTownLevel1()
     {
-        if (IM.scrapMetel >= 5 && IM.townCurrentLevelPoints >= TLM.pointsforlevel1)
+        if (IM.lightMetel >= 5 && IM.heavyMetel >= 10 && IM.lightWood >= 5)
         {
             TLM.Level1();
-            IM.scrapMetel -= 5;
+            IM.lightMetel -= 5;
+            IM.heavyMetel -= 10;
+            IM.lightWood -= 5;
         }
     }
     public void UpgradeTownLevel2()
     {
-        if (IM.scrapMetel >= 5 && IM.lightMetel >= 15 && IM.townCurrentLevelPoints >= TLM.pointsforlevel2)
+        if (IM.lightMetel >= 10 && IM.heavyMetel >= 15 && IM.townCurrentLevelPoints >= TLM.pointsforlevel2)
         {
             TLM.Level2();
-            IM.scrapMetel -= 5;
-            IM.lightMetel -= 15;
+            IM.lightMetel -= 10;
+            IM.heavyMetel -= 15;
         }
     }
     public void UpgradeTownLevel3()

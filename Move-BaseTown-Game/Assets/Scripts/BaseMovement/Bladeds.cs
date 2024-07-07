@@ -12,8 +12,6 @@ public class Bladeds : MonoBehaviour
     public GameObject blade2;
     public GameObject blade3;
     public GameObject blade4;
-    public GameObject blade5;
-    public GameObject blade6;
 
 
     void Start()
@@ -27,7 +25,6 @@ public class Bladeds : MonoBehaviour
         float rotationAmount = speed * rotationMultiplier * Time.deltaTime;
         BigRotateBlades(rotationAmount);
         MidRotateBlades(rotationAmount);
-        SmallRotateBlades(rotationAmount);
     }
 
     public void BigRotateBlades(float rotationAmount)
@@ -42,9 +39,4 @@ public class Bladeds : MonoBehaviour
         blade4.transform.Rotate(Vector3.forward, rotationAmount * 2);
     }
 
-    public void SmallRotateBlades(float rotationAmount)
-    {
-        blade5.transform.Rotate(Vector3.forward, rotationAmount * 3);
-        blade6.transform.Rotate(Vector3.forward, rotationAmount * 3);
-    }
 }

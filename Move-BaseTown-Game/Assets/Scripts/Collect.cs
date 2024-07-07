@@ -18,6 +18,7 @@ public class Collect : MonoBehaviour
     ItemManager ItemManager;
     void Start()
     {
+        mainManager = GameObject.Find("MainManager");
         ItemManager = mainManager.GetComponent<ItemManager>();
     }
 

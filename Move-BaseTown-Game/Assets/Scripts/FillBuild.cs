@@ -29,4 +29,10 @@ public class FillBuild : MonoBehaviour
     {
         HeavyWood.SetActive(true);
     }
+    public void Break()
+    {
+        ScarpWood.SetActive(false);
+        LightWood.SetActive(false);
+        HeavyWood.SetActive(false);
+    }
 }

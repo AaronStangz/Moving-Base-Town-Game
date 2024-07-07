@@ -106,6 +106,18 @@ public class Raycast : MonoBehaviour
                             }
                         }
                     }
+
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        if (hit.distance < Build.useRange)
+                        {
+                            Debug.Log("Build");
+                            Build.Break();
+                            IM.heavyWood -= 1;
+                            IM.townCurrentLevelPoints -= 5;
+                        }
+                    }
+
                 }
             }
 

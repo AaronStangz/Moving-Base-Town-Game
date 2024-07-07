@@ -19,10 +19,12 @@ public class Inventory : MonoBehaviour
     public bool HoldingScrapWood;
     public bool HoldingLightWood;
     public bool HoldingHeavyWood;
+    public bool HoldingGlider;
 
     public GameObject OnHandScrapWood;
     public GameObject OnHandLightWood;
     public GameObject OnHandHeavyWood;
+    public GameObject OnHandGlider;
 
     public bool OpenHand;
 
@@ -41,7 +43,7 @@ public class Inventory : MonoBehaviour
         ItemText[3].text = "Scrap Wood: " + IM.scrapWood + " / " + "20";
         ItemText[4].text = "Light Wood: " + IM.lightWood + " / " + "20";
         ItemText[5].text = "Heavy Wood: " + IM.heavyWood + " / " + "20";
-
+        ItemText[6].text = "Glider";
     }
 
     void Update()
@@ -79,6 +81,8 @@ public class Inventory : MonoBehaviour
             OnHandLightWood.SetActive(false);
             HoldingHeavyWood = false;
             OnHandHeavyWood.SetActive(false);
+            HoldingGlider = false;
+            OnHandGlider.SetActive(false);
         }
     }
 
@@ -116,5 +120,12 @@ public class Inventory : MonoBehaviour
             HoldingHeavyWood = true;
             OnHandHeavyWood.SetActive(true);
             ForceClose();
+    }
+    public void HoldGlider()
+    {
+        OpenHand = false;
+        HoldingGlider = true;
+        OnHandGlider.SetActive(true);
+        ForceClose();
     }
 }
