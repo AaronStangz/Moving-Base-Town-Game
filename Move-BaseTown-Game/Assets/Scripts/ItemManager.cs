@@ -15,15 +15,27 @@ public class ItemManager : MonoBehaviour
     public int townCurrentLevelPoints;
 
     [Header("Mats")]
-    public int scrapMetel;
-    public int lightMetel;
-    public int heavyMetel;
+    public int MaxMats;
+    [Space]
+    public int scrapSteel;
     public int scrapWood;
-    public int lightWood;
-    public int heavyWood;
+    public int scrapCopper;
+
+    public int steel;
+    public int wood;
+    public int copper;
+
+    public int steelRod;
+    public int woodRod;
+    public int steelbeam;
+    public int copperWire;
+    public int steelPlate;
+    public int steelCable;
+
     public int screws;
-    public int nails;
-    public int Gear;
+    public int gear;
+
+
     void Start()
     {
         BaseConsole console = gameObject.GetComponent<BaseConsole>();

@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PlayerGlider : MonoBehaviour
 {
+    [Header("Float")]
     public float glideGravityModifier = 0.5f; // Multiplier to reduce gravity
     public float glideDrag = 2f; // Drag applied during gliding
     public float normalDrag = 0f; // Normal drag when not gliding
     public float glideSpeed = 10f; // Speed of forward movement while gliding
     public float turnSpeed = 50f; // Speed of turning while gliding
+    public float steamPush = 1f; // Speed of turning while gliding
 
+
+    [Header("Objects")]
+    public Rigidbody rb;
     public GameObject playerCamera;
     public GameObject gliderCamera;
     public GameObject glider;
 
+    [Header("Lean")]
     public GameObject Base;
     public float leanAngle = 30f;
 
-    public Rigidbody rb;
+    [Header("Bools")]
     public bool isGliding = false;
     public bool inSteam = false;
 
@@ -28,12 +34,12 @@ public class PlayerGlider : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isGliding && glider.activeSelf)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isGliding && glider.activeSelf)
         {
             StartGlide();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && isGliding)
+        if (Input.GetKeyUp(KeyCode.LeftShift) && isGliding)
         {
             StopGlide();
         }
@@ -80,6 +86,7 @@ public class PlayerGlider : MonoBehaviour
         gliderCamera.SetActive(false);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         isGliding = false;
+        transform.rotation = new Quaternion(0, 0, 0, 0);
         rb.drag = normalDrag; // Reset drag to normal
     }
 
@@ -107,7 +114,21 @@ public class PlayerGlider : MonoBehaviour
         if (other.CompareTag("Steam"))
         {
             inSteam = true;
+            glideGravityModifier = steamPush;
+        }
+        else if(!other.CompareTag("Steam"))
+        {
+            inSteam = false;
+            glideGravityModifier = 1.8f;
         }
         
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Steam"))
+        {
+            inSteam = false;
+            glideGravityModifier = 1.8f;
+        }
     }
 }

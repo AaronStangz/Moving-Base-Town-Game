@@ -77,43 +77,12 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.E) && INV.HoldingLightWood == true && IM.lightWood >= 0)
-                    {
-                        if (hit.distance < Build.useRange)
-                        {
-                            Debug.Log("Build");
-                            Build.PlaceLightWood();
-                            IM.lightWood -= 1;
-                            IM.townCurrentLevelPoints += 10;
-                            if (IM.lightWood == 0)
-                            {
-                                INV.OpenHand = true;
-                            }
-                        }
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.E) && INV.HoldingHeavyWood == true && IM.heavyWood >= 0)
-                    {
-                        if (hit.distance < Build.useRange)
-                        {
-                            Debug.Log("Build");
-                            Build.PlaceHeavyWood();
-                            IM.heavyWood -= 1;
-                            IM.townCurrentLevelPoints += 20;
-                            if (IM.heavyWood == 0)
-                            {
-                                INV.OpenHand = true;
-                            }
-                        }
-                    }
-
                     if (Input.GetKeyDown(KeyCode.X))
                     {
                         if (hit.distance < Build.useRange)
                         {
                             Debug.Log("Build");
                             Build.Break();
-                            IM.heavyWood -= 1;
                             IM.townCurrentLevelPoints -= 5;
                         }
                     }

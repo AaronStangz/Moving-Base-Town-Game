@@ -14,6 +14,7 @@ public class TownLevelManager : MonoBehaviour
     public int pointsforlevel1 = 100;
     public int pointsforlevel2 = 300;
     public int pointsforlevel3 = 500;
+    public int pointsforlevel4 = 700;
 
     public Slider levelSlider;
 
@@ -46,5 +47,16 @@ public class TownLevelManager : MonoBehaviour
 
     public void Level3()
     {
+        levelSlider.maxValue = pointsforlevel4;
+        LevelLocks[3].SetActive(true);
+        LevelLocks[2].SetActive(false);
+        BuildingLevels[3].SetActive(true);
+    }
+    public void Level4()
+    {
+        levelSlider.maxValue = pointsforlevel3;
+        LevelLocks[4].SetActive(true);
+        LevelLocks[3].SetActive(false);
+        BuildingLevels[4].SetActive(true);
     }
 }

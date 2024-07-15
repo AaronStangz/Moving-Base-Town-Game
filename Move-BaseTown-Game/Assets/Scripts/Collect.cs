@@ -7,12 +7,23 @@ public class Collect : MonoBehaviour
     public float pickUpRange;
 
     [Header("What To Give")]
-    public int giveScrapMetal;
-    public int giveLightMetal;
-    public int giveHeavyMetal;
+    public int giveScrapSteel;
     public int giveScrapWood;
-    public int giveLightWood;
-    public int giveHeavyWood;
+    public int giveScrapCopper;
+
+    public int giveSteel;
+    public int giveWood;
+    public int giveCopper;
+
+    public int giveSteelRod;
+    public int giveWoodRod;
+    public int giveSteelbeam;
+    public int giveCopperWire;
+    public int giveSteelPlate;
+    public int giveSteelCable;
+
+    public int giveScrews;
+    public int giveGear;
 
     public GameObject mainManager;
     ItemManager ItemManager;
@@ -24,19 +35,9 @@ public class Collect : MonoBehaviour
 
     public void CollectItem()
     {
-        if (ItemManager.scrapMetel < 20)
+        if (ItemManager.scrapSteel < 20)
         {
-            ItemManager.scrapMetel += giveScrapMetal;
-            Destroy(gameObject);
-        }
-        if (ItemManager.lightMetel < 20)
-        {
-            ItemManager.lightMetel += giveLightMetal;
-            Destroy(gameObject);
-        }
-        if (ItemManager.heavyMetel < 20)
-        {
-            ItemManager.heavyMetel += giveHeavyMetal;
+            ItemManager.scrapSteel += giveScrapSteel;
             Destroy(gameObject);
         }
         if (ItemManager.scrapWood < 20)
@@ -44,14 +45,64 @@ public class Collect : MonoBehaviour
             ItemManager.scrapWood += giveScrapWood;
             Destroy(gameObject);
         }
-        if (ItemManager.lightWood < 20)
+        if (ItemManager.scrapCopper < 20)
         {
-            ItemManager.lightWood += giveLightWood;
+            ItemManager.scrapCopper += giveScrapCopper;
             Destroy(gameObject);
         }
-        if (ItemManager.heavyWood < 20)
+        if (ItemManager.steel < 20)
         {
-            ItemManager.heavyWood += giveHeavyWood;
+            ItemManager.steel += giveSteel;
+            Destroy(gameObject);
+        }
+        if (ItemManager.wood < 20)
+        {
+            ItemManager.wood += giveWood;
+            Destroy(gameObject);
+        }
+        if (ItemManager.copper < 20)
+        {
+            ItemManager.copper += giveCopper;
+            Destroy(gameObject);
+        }
+        if (ItemManager.steelRod < 20)
+        {
+            ItemManager.steelRod += giveSteelRod;
+            Destroy(gameObject);
+        }
+        if (ItemManager.woodRod < 20)
+        {
+            ItemManager.woodRod += giveWoodRod;
+            Destroy(gameObject);
+        }
+        if (ItemManager.steelbeam < 20)
+        {
+            ItemManager.steelbeam += giveSteelbeam;
+            Destroy(gameObject);
+        }
+        if (ItemManager.copperWire < 20)
+        {
+            ItemManager.copperWire += giveCopperWire;
+            Destroy(gameObject);
+        }
+        if (ItemManager.steelPlate < 20)
+        {
+            ItemManager.steelPlate += giveSteelPlate;
+            Destroy(gameObject);
+        }
+        if (ItemManager.steelCable < 20)
+        {
+            ItemManager.steelCable += giveSteelCable;
+            Destroy(gameObject);
+        }
+        if (ItemManager.screws < 20)
+        {
+            ItemManager.screws += giveScrews;
+            Destroy(gameObject);
+        }
+        if (ItemManager.gear < 20)
+        {
+            ItemManager.gear += giveGear;
             Destroy(gameObject);
         }
     }

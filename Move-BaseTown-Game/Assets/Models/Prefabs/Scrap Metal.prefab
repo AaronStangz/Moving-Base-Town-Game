@@ -74,6 +74,8 @@ MonoBehaviour:
   giveScrapWood: 0
   giveLightWood: 0
   giveHeavyWood: 0
+  giveGear: 0
+  giveScrews: 0
   mainManager: {fileID: 0}
 --- !u!1 &3568963816942423812
 GameObject:
@@ -138,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8f9acd0c8b685c479154a44251ab39e, type: 2}
+  - {fileID: 2100000, guid: a383ee9c52645d04b94f11aefa8f7095, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -9,6 +9,12 @@ public class Pusher : MonoBehaviour
 
     public GameObject pusher1;
     public GameObject pusher2;
+    public GameObject pusher3;
+    public GameObject pusher4;
+    public GameObject pusher5;
+    public GameObject pusher6;
+    public GameObject pusher7;
+    public GameObject pusher8;
 
     void Update()
     {
@@ -20,5 +26,11 @@ public class Pusher : MonoBehaviour
     {
         pusher1.transform.Rotate(Vector3.back, rotationAmount);
         pusher2.transform.Rotate(Vector3.back, rotationAmount);
+        pusher3.transform.Rotate(Vector3.back, rotationAmount);
+        pusher4.transform.Rotate(Vector3.back, rotationAmount);
+        pusher5.transform.Rotate(Vector3.back, rotationAmount);
+        pusher6.transform.Rotate(Vector3.back, rotationAmount);
+        pusher7.transform.Rotate(Vector3.back, rotationAmount);
+        pusher8.transform.Rotate(Vector3.back, rotationAmount);
     }
 }

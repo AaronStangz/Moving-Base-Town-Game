@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19c2cdd5b97970645b6bad34de7ffed0, type: 2}
+  - {fileID: 2100000, guid: 920c3b2d0a54ae6438ca86115590a0af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,4 +159,6 @@ MonoBehaviour:
   giveScrapWood: 1
   giveLightWood: 0
   giveHeavyWood: 0
+  giveGear: 0
+  giveScrews: 0
   mainManager: {fileID: 0}
